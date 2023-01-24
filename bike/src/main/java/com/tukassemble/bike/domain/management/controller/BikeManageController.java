@@ -14,7 +14,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/bike")
+@RequestMapping("/api/v1/bike")
 public class BikeManageController {
 
   private final BikeManageService bikeManageService;
