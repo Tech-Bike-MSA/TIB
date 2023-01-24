@@ -1,4 +1,4 @@
-package com.tukassemble.bike.global;
+package com.tukassemble.bike.global.domain;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
