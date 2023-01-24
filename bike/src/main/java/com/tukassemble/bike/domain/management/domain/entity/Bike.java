@@ -1,6 +1,6 @@
 package com.tukassemble.bike.domain.management.domain.entity;
 
-import com.tukassemble.bike.global.BaseTimeEntity;
+import com.tukassemble.bike.global.domain.BaseTimeEntity;
 import lombok.*;
 
 import javax.persistence.*;
