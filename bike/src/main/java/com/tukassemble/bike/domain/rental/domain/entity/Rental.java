@@ -1,15 +1,17 @@
 package com.tukassemble.bike.domain.rental.domain.entity;
 
 import com.tukassemble.bike.domain.management.domain.entity.Bike;
-import com.tukassemble.bike.global.domain.BaseTimeEntity;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import com.tukassemble.bike.global.domain.BaseEntity;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
+@Getter
+@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Rental extends BaseTimeEntity {
+@Table(name = "rental")
+public class Rental extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -24,4 +26,11 @@ public class Rental extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "rental_status", nullable = false)
     private RentalStatus rentalStatus;
+
+    @Builder
+    public Rental(Bike bike, Long userId, RentalStatus rentalStatus) {
+        this.bike = bike;
+        this.userId = userId;
+        this.rentalStatus = rentalStatus;
+    }
 }
