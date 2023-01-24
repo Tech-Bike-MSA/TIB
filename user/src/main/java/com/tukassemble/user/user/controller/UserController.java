@@ -8,18 +8,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
 public class UserController {
 
   private final UsersLoginService usersLoginService;
 
-  @PostMapping("/api/v1/users")
+  @PostMapping
   public ResponseEntity<UserInfo> registerUsers(@RequestBody UserCreateRequest request) {
     UserInfo userInfo = usersLoginService.registerUser(request);
     return ResponseEntity.ok(userInfo);
   }
 
-  @GetMapping("/api/v1/users/{id}")
+  @GetMapping("/{id}")
   public ResponseEntity<UserInfo> getUsers(@PathVariable Long id) {
     UserInfo userInfo = usersLoginService.findOneUsersById(id);
     return ResponseEntity.ok(userInfo);
