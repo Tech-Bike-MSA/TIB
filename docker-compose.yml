@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+
+  bike-mysqldb:
+    image: mysql:8.0-oracle
+    container_name: bike-mysqldb
+    # 맥의 경우 mysql 실행을 위해 아래 옵션 주석을 풀어주세요
+    #    platform: linux/amd64
+    env_file:
+      - "config/.env-bike"
+    command:
+      [
+        "--character-set-server=utf8mb4",
+        "--collation-server=utf8mb4_unicode_ci",
+      ]
+    volumes:
+      - bike-mysqldb-data:/msql
+    ports:
+      - "3306:3306"
+
+    networks:
+      - network-tier
+
+networks:
+  network-tier:
+    driver: bridge
+
+volumes:
+  bike-mysqldb-data:
