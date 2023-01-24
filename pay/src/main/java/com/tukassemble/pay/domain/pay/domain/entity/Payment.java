@@ -11,7 +11,7 @@ import lombok.*;
 @Table(name = "payment")
 public class Payment extends BaseTimeEntity {
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE)
   private Long id;
 
   @Column(name = "user_id", nullable = false)
