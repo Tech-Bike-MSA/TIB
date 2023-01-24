@@ -1,6 +1,6 @@
 package com.tukassemble.bike.domain.management.domain.entity;
 
-import com.tukassemble.bike.global.domain.BaseTimeEntity;
+import com.tukassemble.bike.global.domain.BaseEntity;
 import java.util.UUID;
 import javax.persistence.*;
 import lombok.*;
@@ -10,7 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "bike")
-public class Bike extends BaseTimeEntity {
+public class Bike extends BaseEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
