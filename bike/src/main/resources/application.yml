@@ -1,4 +1,9 @@
+server:
+  port: 0
+
 spring:
+  application:
+    name: bike-service
   jpa:
     database: "mysql"
     show-sql: "true"
