@@ -7,9 +7,9 @@ import lombok.*;
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class PaymentResult {
-    private Long id;
-    private Long userId;
-    private Long rentalId;
-    private Long payAmount;
-    private PaymentStatus paymentStatus;
+  private Long id;
+  private Long userId;
+  private Long rentalId;
+  private Long payAmount;
+  private PaymentStatus paymentStatus;
 }
