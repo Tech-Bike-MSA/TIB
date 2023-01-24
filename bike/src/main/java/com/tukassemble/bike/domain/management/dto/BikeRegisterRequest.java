@@ -8,13 +8,16 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+import javax.validation.constraints.NotNull;
+
 @Builder
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class BikeRegisterRequest {
 
+    @NotNull(message = "모델 타입은 필수 입력값입니다")
     ModelType modelType;
-    UseStatus useStatus;
-    Location location;
+
 }
