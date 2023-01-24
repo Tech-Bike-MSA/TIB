@@ -17,7 +17,7 @@ public class Rental extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private Bike bike;
 
     @Column(name = "user_id", nullable = false)
@@ -28,9 +28,13 @@ public class Rental extends BaseEntity {
     private RentalStatus rentalStatus;
 
     @Builder
-    public Rental(Bike bike, Long userId, RentalStatus rentalStatus) {
+    public Rental(Bike bike, Long userId) {
         this.bike = bike;
         this.userId = userId;
-        this.rentalStatus = rentalStatus;
+        this.rentalStatus = RentalStatus.RENTED;
+    }
+
+    public void returnBike(){
+        this.rentalStatus = RentalStatus.RETURNED;
     }
 }
