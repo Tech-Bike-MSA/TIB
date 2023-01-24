@@ -1,9 +1,8 @@
 package com.tukassemble.pay.domain.pay.domain.entity;
 
 import com.tukassemble.pay.global.domain.BaseTimeEntity;
-import lombok.*;
-
 import javax.persistence.*;
+import lombok.*;
 
 @Getter
 @Entity

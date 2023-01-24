@@ -7,9 +7,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 public enum PaymentStatus {
-    SUCCESS("결제 성공"),
-    FAILURE("결제 실패"),
-    ;
+  SUCCESS("결제 성공"),
+  FAILURE("결제 실패"),
+  ;
 
-    private final String description;
+  private final String description;
 }
