@@ -6,8 +6,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public enum UseStatus {
-    BREAK_DOWN("고장"), IN_USE("사용 중"), CAN_USE("사용 가능"),;
+  BREAK_DOWN("고장"),
+  IN_USE("사용 중"),
+  CAN_USE("사용 가능"),
+  ;
 
-    private final String description;
-
+  private final String description;
 }
