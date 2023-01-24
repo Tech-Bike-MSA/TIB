@@ -37,12 +37,12 @@ public class Bike extends BaseEntity {
     this.location = location;
   }
 
-  public void updateBike(UseStatus useStatus, Location location){
+  public void updateBike(UseStatus useStatus, Location location) {
     this.useStatus = useStatus;
     this.location = location;
   }
 
-  public void updateBike(UseStatus useStatus){
+  public void updateBike(UseStatus useStatus) {
     this.useStatus = useStatus;
   }
 }

@@ -2,9 +2,8 @@ package com.tukassemble.bike.domain.rental.domain.entity;
 
 import com.tukassemble.bike.domain.management.domain.entity.Bike;
 import com.tukassemble.bike.global.domain.BaseEntity;
-import lombok.*;
-
 import javax.persistence.*;
+import lombok.*;
 
 @Entity
 @Getter
@@ -13,28 +12,28 @@ import javax.persistence.*;
 @Table(name = "rental")
 public class Rental extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.SEQUENCE)
+  private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    private Bike bike;
+  @OneToOne(fetch = FetchType.LAZY)
+  private Bike bike;
 
-    @Column(name = "user_id", nullable = false)
-    private Long userId;
+  @Column(name = "user_id", nullable = false)
+  private Long userId;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "rental_status", nullable = false)
-    private RentalStatus rentalStatus;
+  @Enumerated(EnumType.STRING)
+  @Column(name = "rental_status", nullable = false)
+  private RentalStatus rentalStatus;
 
-    @Builder
-    public Rental(Bike bike, Long userId) {
-        this.bike = bike;
-        this.userId = userId;
-        this.rentalStatus = RentalStatus.RENTED;
-    }
+  @Builder
+  public Rental(Bike bike, Long userId) {
+    this.bike = bike;
+    this.userId = userId;
+    this.rentalStatus = RentalStatus.RENTED;
+  }
 
-    public void returnBike(){
-        this.rentalStatus = RentalStatus.RETURNED;
-    }
+  public void returnBike() {
+    this.rentalStatus = RentalStatus.RETURNED;
+  }
 }
