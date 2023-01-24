@@ -1,4 +1,3 @@
 package com.tukassemble.bike.infra;
 
-public class Publisher {
-}
+public class Publisher {}
