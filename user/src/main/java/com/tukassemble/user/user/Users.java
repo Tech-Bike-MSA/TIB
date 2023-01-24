@@ -1,10 +1,9 @@
 package com.tukassemble.user.user;
 
 import com.tukassemble.user.global.domain.BaseEntity;
-import lombok.*;
-
-import javax.persistence.*;
 import java.util.Objects;
+import javax.persistence.*;
+import lombok.*;
 
 @Getter
 @Entity

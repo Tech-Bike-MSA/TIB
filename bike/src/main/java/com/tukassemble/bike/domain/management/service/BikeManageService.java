@@ -6,8 +6,8 @@ import com.tukassemble.bike.domain.management.domain.entity.Bike;
 import com.tukassemble.bike.domain.management.domain.entity.Location;
 import com.tukassemble.bike.domain.management.domain.entity.UseStatus;
 import com.tukassemble.bike.domain.management.domain.repository.BikeRepository;
-import com.tukassemble.bike.domain.management.dto.BikeRegisterRequest;
 import com.tukassemble.bike.domain.management.dto.BikeInfo;
+import com.tukassemble.bike.domain.management.dto.BikeRegisterRequest;
 import com.tukassemble.bike.domain.management.dto.mapper.BikeMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -34,7 +34,7 @@ public class BikeManageService {
     String jsonInString = "";
     try {
       jsonInString = mapper.writeValueAsString(bikeMapper.mapToBikeInfo(savedBike));
-    } catch(JsonProcessingException ex) {
+    } catch (JsonProcessingException ex) {
       ex.printStackTrace();
     }
 
