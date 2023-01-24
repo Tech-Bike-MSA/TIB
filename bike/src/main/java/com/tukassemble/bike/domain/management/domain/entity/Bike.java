@@ -36,4 +36,13 @@ public class Bike extends BaseEntity {
     this.useStatus = useStatus;
     this.location = location;
   }
+
+  public void updateBike(UseStatus useStatus, Location location){
+    this.useStatus = useStatus;
+    this.location = location;
+  }
+
+  public void updateBike(UseStatus useStatus){
+    this.useStatus = useStatus;
+  }
 }
