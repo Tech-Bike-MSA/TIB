@@ -16,4 +16,6 @@ public class BaseTimeEntity {
   @CreatedDate private LocalDateTime createdOn;
 
   @LastModifiedBy private LocalDateTime updatedOn;
+
+  private boolean isDeleted = Boolean.FALSE;
 }
