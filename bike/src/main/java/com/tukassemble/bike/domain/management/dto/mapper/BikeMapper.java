@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class BikeMapper {
 
-    public BikeInfo mapToBikeInfo(Bike newBike) {
-        return BikeInfo.builder()
-                .serialCode(newBike.getSerialCode())
-                .useStatus(newBike.getUseStatus())
-                .modelType(newBike.getModelType())
-                .build();
-    }
+  public BikeInfo mapToBikeInfo(Bike newBike) {
+    return BikeInfo.builder()
+        .serialCode(newBike.getSerialCode())
+        .useStatus(newBike.getUseStatus())
+        .modelType(newBike.getModelType())
+        .build();
+  }
 }
