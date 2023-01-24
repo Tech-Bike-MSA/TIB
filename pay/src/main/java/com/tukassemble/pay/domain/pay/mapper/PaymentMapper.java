@@ -4,7 +4,12 @@ import com.tukassemble.pay.domain.pay.domain.entity.Payment;
 import com.tukassemble.pay.domain.pay.domain.entity.PaymentStatus;
 import com.tukassemble.pay.domain.pay.dto.PaymentRequest;
 import com.tukassemble.pay.domain.pay.dto.PaymentResult;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PaymentMapper {
 
   public Payment toEntity(
