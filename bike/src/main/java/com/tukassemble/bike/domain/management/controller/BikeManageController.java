@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/bike")
+@RequestMapping("/api/v1/bike")
 public class BikeManageController {
 
   private final BikeManageService bikeManageService;
