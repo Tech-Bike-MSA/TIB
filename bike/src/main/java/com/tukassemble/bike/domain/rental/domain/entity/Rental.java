@@ -18,6 +18,9 @@ public class Rental extends BaseTimeEntity {
     @OneToOne
     private Bike bike;
 
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "rental_status", nullable = false)
     private RentalStatus rentalStatus;
