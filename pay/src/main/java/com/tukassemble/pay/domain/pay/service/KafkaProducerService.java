@@ -4,10 +4,10 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
 import org.springframework.messaging.MessagingException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.concurrent.ListenableFuture;
-import org.springframework.kafka.support.SendResult;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
 @Slf4j
