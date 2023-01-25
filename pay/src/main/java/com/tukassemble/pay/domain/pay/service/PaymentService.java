@@ -15,15 +15,20 @@ import org.springframework.stereotype.Service;
 public class PaymentService {
   private final PaymentRepository paymentRepository;
   private final PaymentMapper paymentMapper;
+  private final KafkaProducerService kafkaProducerService;
 
   private final Long costPerMin = 100L;
+  private static final String PAYMENT_RESULT_TOPIC = "paymentResult";
 
   public PaymentResult pay(PaymentRequest paymentRequest) {
     Long paymentAmount = getPaymentAmountByUseTime(paymentRequest.getUseTime());
     Boolean isPaymentSuccess = tryPay(paymentRequest.getUserId(), paymentAmount);
-    Payment payment =
-        paymentMapper.toEntity(paymentRequest, paymentAmount, getPaymentStatus(isPaymentSuccess));
+    PaymentStatus paymentStatus = getPaymentStatus(isPaymentSuccess);
+    Payment payment = paymentMapper.toEntity(paymentRequest, paymentAmount, paymentStatus);
     paymentRepository.save(payment);
+
+    // 임시로 일단 결제 성공, 실패 여부만 전송
+    kafkaProducerService.sendMessage(PAYMENT_RESULT_TOPIC, paymentStatus.getDescription());
     return paymentMapper.toDto(payment);
   }
 
