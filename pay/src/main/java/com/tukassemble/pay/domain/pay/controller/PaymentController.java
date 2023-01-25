@@ -21,7 +21,6 @@ public class PaymentController {
   @PostMapping
   public ResponseEntity<PaymentResult> pay(@Valid @RequestBody PaymentRequest paymentRequest) {
     PaymentResult paymentResult = paymentService.pay(paymentRequest);
-    // Bike State Change Message Pub 하는 코드 추가 하기
     return ResponseEntity.ok(paymentResult);
   }
 }
