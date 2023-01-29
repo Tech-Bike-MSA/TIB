@@ -1,4 +1,4 @@
-package com.tukassemble.bike.domain.rental.domain.dto.request;
+package com.tukassemble.rental.domain.rental.domain.dto.request;
 
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;

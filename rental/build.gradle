@@ -18,31 +18,17 @@ repositories {
     mavenCentral()
 }
 
-ext {
-    set('springCloudVersion', "2021.0.5")
-}
-
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.apache.kafka:kafka-streams'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
-    implementation 'org.springdoc:springdoc-openapi-ui:1.6.8'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.kafka:spring-kafka'
     compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    runtimeOnly 'com.h2database:h2'
     runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
-
-}
-
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-    }
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
 }
 
 tasks.named('test') {

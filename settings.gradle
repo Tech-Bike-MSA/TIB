@@ -1,2 +1,2 @@
 rootProject.name = 'tib'
-include 'bike', 'eureka', 'gateway', 'pay', 'user'
+include 'bike', 'eureka', 'gateway', 'pay', 'user', 'rental'
