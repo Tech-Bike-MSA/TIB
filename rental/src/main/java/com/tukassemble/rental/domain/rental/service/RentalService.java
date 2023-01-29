@@ -1,12 +1,7 @@
-package com.tukassemble.bike.domain.rental.service;
+package com.tukassemble.rental.domain.rental.service;
 
-import com.tukassemble.bike.domain.management.domain.entity.Bike;
-import com.tukassemble.bike.domain.management.domain.entity.UseStatus;
-import com.tukassemble.bike.domain.management.domain.repository.BikeRepository;
-import com.tukassemble.bike.domain.rental.domain.dto.request.RequestDto;
-import com.tukassemble.bike.domain.rental.domain.dto.response.ResponseDto;
-import com.tukassemble.bike.domain.rental.domain.entity.Rental;
-import com.tukassemble.bike.domain.rental.domain.repository.RentalRepository;
+
+import com.tukassemble.rental.domain.rental.domain.repository.RentalRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

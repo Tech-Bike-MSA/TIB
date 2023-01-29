@@ -1,9 +1,10 @@
-package com.tukassemble.bike.domain.rental.domain.entity;
+package com.tukassemble.rental.domain.rental.domain.entity;
 
 import com.tukassemble.bike.domain.management.domain.entity.Bike;
 import com.tukassemble.bike.global.domain.BaseEntity;
-import javax.persistence.*;
 import lombok.*;
+
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -16,8 +17,8 @@ public class Rental extends BaseEntity {
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
   private Long id;
 
-  @OneToOne(fetch = FetchType.LAZY)
-  private Bike bike;
+  @Column(name = "user_id", nullable = false)
+  private Long bikeId;
 
   @Column(name = "user_id", nullable = false)
   private Long userId;
@@ -27,8 +28,8 @@ public class Rental extends BaseEntity {
   private RentalStatus rentalStatus;
 
   @Builder
-  public Rental(Bike bike, Long userId) {
-    this.bike = bike;
+  public Rental(Long bikeId, Long userId) {
+    this.bikeId = bikeId;
     this.userId = userId;
     this.rentalStatus = RentalStatus.RENTED;
   }

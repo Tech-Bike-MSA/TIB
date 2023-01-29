@@ -1,10 +1,11 @@
-package com.tukassemble.bike.domain.rental.domain.dto.request;
+package com.tukassemble.rental.domain.rental.domain.dto.request;
 
-import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Builder
