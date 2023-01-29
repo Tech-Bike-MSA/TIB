@@ -2,7 +2,7 @@
 Tech Innovation Bike Rental System (Awesome Rental System)
 
 ## Evnet Storming Diagram
-<img width="841" alt="스크린샷 2023-01-29 오후 9 28 18" src="https://user-images.githubusercontent.com/57928967/215326118-a792aa3f-4a6d-4fa9-9923-0755718ead18.png">
+<img width="830" alt="스크린샷 2023-01-29 오후 9 40 08" src="https://user-images.githubusercontent.com/57928967/215326744-af4568b0-3b0b-4c93-8cbe-20bf7ef7bee1.png">
 
 
 ## 자전거 반납 비동기 처리에 대한 부가 설명
