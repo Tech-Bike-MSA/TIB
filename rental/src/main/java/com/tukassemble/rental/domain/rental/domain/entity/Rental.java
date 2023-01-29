@@ -1,10 +1,8 @@
 package com.tukassemble.rental.domain.rental.domain.entity;
 
-import com.tukassemble.bike.domain.management.domain.entity.Bike;
 import com.tukassemble.bike.global.domain.BaseEntity;
-import lombok.*;
-
 import javax.persistence.*;
+import lombok.*;
 
 @Entity
 @Getter
