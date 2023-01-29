@@ -1,6 +1,5 @@
 package com.tukassemble.rental.domain.rental.service;
 
-
 import com.tukassemble.rental.domain.rental.domain.repository.RentalRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
