@@ -1,7 +1,7 @@
 # TIB
 Tech Innovation Bike Rental System (Awesome Rental System)
 
-## Evnet Storming Diagram
+## Event Storming Diagram
 <img width="1159" alt="image" src="https://user-images.githubusercontent.com/108508730/215334901-29cc258a-54df-4ad0-aee3-3bf27ce5a28c.png">
 
 
