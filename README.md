@@ -2,7 +2,7 @@
 Tech Innovation Bike Rental System (Awesome Rental System)
 
 ## Event Storming Diagram
-<img width="1159" alt="image" src="https://user-images.githubusercontent.com/108508730/215334901-29cc258a-54df-4ad0-aee3-3bf27ce5a28c.png">
+<img width="1159" alt="image" src="https://user-images.githubusercontent.com/108508730/215339636-fde9b1d8-7bf6-4951-90a5-3e66798da810.png">
 
 
 ## 자전거 반납 비동기 처리에 대한 부가 설명
