@@ -14,24 +14,31 @@ public class Payment extends BaseTimeEntity {
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
   private Long id;
 
-  @Column(name = "user_id", nullable = false)
-  private Long userId;
-
   @Column(name = "rental_id", nullable = false)
   private Long rentalId;
 
-  @Column(name = "pay_amount", nullable = false)
-  private Long payAmount;
+  @Column(name = "bike_id", nullable = false)
+  private Long bikeId;
 
-  @Enumerated(EnumType.STRING)
-  @Column(name = "payment_status", nullable = false)
-  private PaymentStatus paymentStatus;
+  @Column(name = "user_id", nullable = false)
+  private Long userId;
+
+  @Column(name = "pay_amount", nullable = false)
+  private Integer payAmount;
+
+  @Column(name = "is_paid", nullable = false)
+  private Boolean isPaid;
+
+  @Column(nullable = false)
+  private Integer point;
 
   @Builder
-  public Payment(Long userId, Long rentalId, Long payAmount, PaymentStatus paymentStatus) {
-    this.userId = userId;
+  public Payment(Long rentalId, Long bikeId, Integer payAmount, Boolean isPaid, Long userId, Integer point) {
     this.rentalId = rentalId;
+    this.bikeId = bikeId;
     this.payAmount = payAmount;
-    this.paymentStatus = paymentStatus;
+    this.isPaid = isPaid;
+    this.userId = userId;
+    this.point = point;
   }
 }
