@@ -33,7 +33,8 @@ public class Payment extends BaseTimeEntity {
   private Integer point;
 
   @Builder
-  public Payment(Long rentalId, Long bikeId, Integer payAmount, Boolean isPaid, Long userId, Integer point) {
+  public Payment(
+      Long rentalId, Long bikeId, Integer payAmount, Boolean isPaid, Long userId, Integer point) {
     this.rentalId = rentalId;
     this.bikeId = bikeId;
     this.payAmount = payAmount;

@@ -1,13 +1,8 @@
 package com.tukassemble.pay.domain.pay.controller;
 
-import com.tukassemble.pay.domain.pay.dto.PaymentRequest;
 import com.tukassemble.pay.domain.pay.service.PaymentService;
-import javax.validation.Valid;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class PaymentController {
   private final PaymentService paymentService;
 
-//  @PostMapping
-//  public ResponseEntity<PaymentResult> pay(@Valid @RequestBody PaymentRequest paymentRequest) {
-//    PaymentResult paymentResult = paymentService.pay(paymentRequest);
-//    return ResponseEntity.ok(paymentResult);
-//  }
+  //  @PostMapping
+  //  public ResponseEntity<PaymentResult> pay(@Valid @RequestBody PaymentRequest paymentRequest) {
+  //    PaymentResult paymentResult = paymentService.pay(paymentRequest);
+  //    return ResponseEntity.ok(paymentResult);
+  //  }
 }

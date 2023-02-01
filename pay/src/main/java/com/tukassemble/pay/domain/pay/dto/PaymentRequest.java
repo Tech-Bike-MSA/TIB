@@ -1,9 +1,8 @@
 package com.tukassemble.pay.domain.pay.dto;
 
+import java.time.LocalDateTime;
 import javax.validation.constraints.NotNull;
 import lombok.*;
-
-import java.time.LocalDateTime;
 
 @Builder
 @Getter
