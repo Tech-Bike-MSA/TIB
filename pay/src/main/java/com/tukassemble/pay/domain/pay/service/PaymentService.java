@@ -1,9 +1,12 @@
 package com.tukassemble.pay.domain.pay.service;
 
+import com.tukassemble.pay.domain.pay.domain.entity.Payment;
 import com.tukassemble.pay.domain.pay.domain.repository.PaymentRepository;
+import com.tukassemble.pay.domain.pay.dto.PaymentMessage;
 import com.tukassemble.pay.domain.pay.mapper.PaymentMapper;
 import java.time.Duration;
 import java.time.LocalDateTime;
+
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,32 +16,35 @@ import org.springframework.stereotype.Service;
 public class PaymentService {
   private final PaymentRepository paymentRepository;
   private final PaymentMapper paymentMapper;
-  private final KafkaProducerService kafkaProducerService;
 
-  private final Long costPerMin = 100L;
-  private static final String PAYMENT_RESULT_TOPIC = "paymentResult";
+  private final Integer COST_PER_MIN = 100;
+  private final Float POINT_PERCENTAGE = 0.01f;
 
-  //  public PaymentResult pay(PaymentRequest paymentRequest) {
-  //    Long paymentAmount = getPaymentAmountByUseTime(paymentRequest.getRentaledAt(),
-  // paymentRequest.getReturnedAt());
-  //    Boolean isPaymentSuccess = tryPay(paymentRequest.getUserId(), paymentAmount);
-  //    PaymentStatus paymentStatus = getPaymentStatus(isPaymentSuccess);
-  //    Payment payment = paymentMapper.toEntity(paymentRequest, paymentAmount, paymentStatus);
-  //    paymentRepository.save(payment);
-  //
-  //    // 임시로 일단 결제 성공, 실패 여부만 전송
-  //    kafkaProducerService.sendMessage(PAYMENT_RESULT_TOPIC, paymentStatus.getDescription());
-  //    return paymentMapper.toDto(payment);
-  //  }
+  public Payment pay(PaymentMessage paymentMessage) {
+    Integer paymentAmount =
+        getPaymentAmountByUseTime(paymentMessage.getRentaledAt(), paymentMessage.getReturnedAt());
+    Boolean isPaymentSuccess = tryPay(paymentMessage.getUserId(), paymentAmount);
+    Integer earnedPoint = getEarnedPoint(paymentAmount, isPaymentSuccess);
+    Payment payment =
+        paymentMapper.toEntity(paymentMessage, paymentAmount, earnedPoint, isPaymentSuccess);
+    paymentRepository.save(payment);
+    return payment;
+  }
 
-  private Boolean tryPay(Long userId, Long paymentAmount) {
+  private Boolean tryPay(Long userId, Integer paymentAmount) {
     // 실제 결제 모듈이 있다면 여기서 결제, 결제 성공 시 true, 실패 시 false
-    Boolean isPaymentSuccess = true;
+    // 임시로 10% 확률로 결제 실패 하도록 설정
+    Boolean isPaymentSuccess = Math.random() >= 0.1f;
     return isPaymentSuccess;
   }
 
-  private Long getPaymentAmountByUseTime(LocalDateTime rentaledAt, LocalDateTime returnedAt) {
+  private Integer getEarnedPoint(Integer paymentAmount, Boolean isPaymentSuccess) {
+    if (isPaymentSuccess) return Math.round(paymentAmount * POINT_PERCENTAGE);
+    return 0;
+  }
+
+  private Integer getPaymentAmountByUseTime(LocalDateTime rentaledAt, LocalDateTime returnedAt) {
     Duration diff = Duration.between(rentaledAt, returnedAt);
-    return diff.toMinutes() * costPerMin;
+    return (int) Math.ceil(diff.toMinutes() * COST_PER_MIN);
   }
 }
