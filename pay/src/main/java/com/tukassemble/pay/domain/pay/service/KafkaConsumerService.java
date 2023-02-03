@@ -11,17 +11,16 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class KafkaConsumerService {
-    private final PaymentService paymentService;
+  private final PaymentService paymentService;
 
-    @KafkaListener(
-            groupId = "${spring.kafka.consumer.group-id}",
-            topics = "${spring.kafka.topic.name}"
-    )
-    public void pay(PaymentMessage paymentMessage) {
-        Payment paymentResult = paymentService.pay(paymentMessage);
-        if(paymentResult.getIsPaid()) {
-            // point 적립 message pub
-            // kafkaProducerService.sendMessage(POINT_EARN_TOPIC, pointMessage);
-        }
+  @KafkaListener(
+      groupId = "${spring.kafka.consumer.group-id}",
+      topics = "${spring.kafka.topic.name}")
+  public void pay(PaymentMessage paymentMessage) {
+    Payment paymentResult = paymentService.pay(paymentMessage);
+    if (paymentResult.getIsPaid()) {
+      // point 적립 message pub
+      // kafkaProducerService.sendMessage(POINT_EARN_TOPIC, pointMessage);
     }
+  }
 }

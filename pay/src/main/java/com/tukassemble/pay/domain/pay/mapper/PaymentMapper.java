@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PaymentMapper {
   public Payment toEntity(
-          PaymentMessage paymentRequest, Integer payAmount, Integer point, Boolean isPaid) {
+      PaymentMessage paymentRequest, Integer payAmount, Integer point, Boolean isPaid) {
     return Payment.builder()
         .rentalId(paymentRequest.getRentalId())
         .userId(paymentRequest.getUserId())
