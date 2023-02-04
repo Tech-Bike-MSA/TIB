@@ -8,7 +8,7 @@ import lombok.*;
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class PaymentRequest {
+public class PaymentMessage {
   @NotNull(message = "대여 ID는 필수 입력값 입니다.")
   private Long rentalId;
 
