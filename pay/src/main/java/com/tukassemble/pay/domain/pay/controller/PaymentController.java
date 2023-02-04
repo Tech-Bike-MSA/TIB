@@ -3,6 +3,7 @@ package com.tukassemble.pay.domain.pay.controller;
 import com.tukassemble.pay.domain.pay.domain.entity.Payment;
 import com.tukassemble.pay.domain.pay.dto.PaymentMessage;
 import com.tukassemble.pay.domain.pay.service.PaymentService;
+import javax.validation.Valid;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -10,8 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.validation.Valid;
 
 @RestController
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
