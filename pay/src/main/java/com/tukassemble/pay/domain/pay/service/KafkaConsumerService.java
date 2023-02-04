@@ -19,8 +19,9 @@ public class KafkaConsumerService {
   public void pay(PaymentMessage paymentMessage) {
     Payment paymentResult = paymentService.pay(paymentMessage);
     if (paymentResult.getIsPaid()) {
-      // point 적립 message pub
+      // point 적립 message pub 넣기
       // kafkaProducerService.sendMessage(POINT_EARN_TOPIC, pointMessage);
+      log.info("point earn message pub");
     }
   }
 }
